@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+    <center><h1>ORDER</h1></center>
+    <div class="container">
+        <form  class="order-form" method="post" action="orderview/">
+            {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Email">Email</label>
+                        <input name="Email" class="form-control" id="Email" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Phonenumber">Phone number</label>
+                        <input name="Phonenumber"type="tel" class="form-control" id="Phonenumber" placeholder="123456789">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="caketype">Cake type</label>
+                        <input name="caketype" type="text" class="form-control" id="caketype" placeholder="Caketype">
+                    </div>
+                    <div class="form-group col-md-2 ">
+                        <label for="Quantity">Quantity in KG</label>
+                        <input type="number" name="Quantity" id="Quantity" class="form-control" min="0.5" max="2" step="0.5">
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <label for="Comments">Enter your comments</label>
+                    <input name="Comments" type="text" class="form-control" id="Comments" placeholder="Comments">
+                </div>
+                <div class="form-group">
+                    <label for="Address">Delivery Address</label>
+                    <input name="Address" type="text" class="form-control" id="Address" placeholder="1234 Main St">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="City">City</label>
+                        <select name="City" id="City" class="form-control">
+                            <option selected>Coimbatore</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="State">State</label>
+                        <select name="State" id="State" class="form-control">
+                            <option selected>Tamilnadu</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div>
+                    <h6>PAYMENT METHOD : CASH ON DELIVERY ONLY</h6>
+                </div>
+                <div>
+                    <button type="submit" value="Order" class="btn btn-primary">PLACE ORDER</button>
+                </div>
+        </form>
+    </div>
+{% endblock %}
